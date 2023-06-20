@@ -21,7 +21,7 @@ It's a fairly basic game but solid, I might expand it later with additional puzz
 *The classic game played in complicated fashion in a terminal*
 
 ### Design
-The game is managed by global variables and a nested list that serves as the board; it's intended to be played by 2 humans who input a row (1-3) and column (A-C) to place an X or O. Every turn, the game iterates through different win conditions before prompting the next player.
+The game is managed by global variables and a nested list that serves as the board; it's intended to be played by 2 humans who input row (1-3) and column (A-C) choices to place an X or O. Every turn, the game iterates through different win conditions before prompting the next player.
 
 ### Next
-I'll fix the input issue (so it doesn't crash when user inputs something unaccepted). I might later make it so the user can play vs. the computer.
+I might later make it so the user can play vs. the computer.

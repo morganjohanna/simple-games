@@ -3,26 +3,65 @@ win = False
 turn = 1
 
 def player_turn(player):
+    """
+    Requests and validates player row and column input.
+
+    Parameters
+    ----------
+    player: string
+        "X" or "O"
+    
+    Returns
+    -------
+    board: list
+        Updated player board with moves recorded as a nested list
+    turn: integer
+        Counts the number of turns to regulate gameplay
+    """
+    
     global turn
+    row = 9
+    column = 9
 
-    print(f"Choose {player}'s move.")
-    row = int(input("What row do you want to select? 1, 2, or 3? "))-1
-    column = input("What column do you want to select? A, B, or C? ")
+    while (row == 9 and column == 9) or (board[row][column] != "-"):
+        print(f"Choose {player}'s move:")
+        row = input("What row do you want to select? 1, 2, or 3? ")
+        while row not in ["1", "2", "3"]:
+            print("That's not an option!")
+            row = input("What row do you want to select? 1, 2, or 3? ")
 
-    if column == "A" or column == "a":
-        column = 0
-    elif column == "B" or column == "b":
-        column = 1
-    else:
-        column = 2
+        row = int(row) - 1
+
+        column = input("What column do you want to select? A, B, or C? ").lower()
+        while column not in ["a", "b", "c"]:
+            print("That's not an option!")
+            column = input("What column do you want to select? A, B, or C? ").lower()
         
-    if board[row][column] == "-":
-        board[row][column] = player
-        turn = turn+1
-    else:
-        print("\nSorry, that space is not available!")
+        if column == "a":
+            column = 0
+        elif column == "b":
+            column = 1
+        elif column == "c":
+            column = 2
+
+        if board[row][column] != "-":
+            print("Sorry, that space is taken!")
+    
+    board[row][column] = player
+    turn = turn + 1
+
+    return board, turn
 
 def wincheck():
+    """
+    Prints the board as it currently stands in a readable format and checks for win conditions. 
+
+    Returns
+    -------
+    boolean
+        If win conditions met (aka someone has won), True returned
+    """
+
     print("\nCurrently the board stands as follows:")
     for i in board:
         print(*i)
