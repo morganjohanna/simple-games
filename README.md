@@ -3,6 +3,7 @@ Contains multiple basic games coded in Python. Games each consist of a single Py
 
 **Games**
 - Adventure (adventure.py)
+- Mr. Flynn's Math Game (math_game.py)
 - Tic-Tac-Toe (tictactoe.py)
 
 ## Adventure
@@ -20,6 +21,23 @@ The game was built step by step and changed considerably from the first iteratio
 
 ### Next
 It's a fairly basic game but solid, I might expand it later with additional puzzles or interactions.
+
+## Mr. Flynn's Math Game
+*A basic math game taught to me in 7th grade math with Mr. Flynn and often played with A-10 playing cards.*
+
+Currently in development!
+
+### Design and Implementation
+Allegedly, the game has no unsolvable problems, so I didn't start with a backend validator (see my [Automaze](https://github.com/morganjohanna/automaze) repo for how I set up one of these for a maze game). Instead, I started with 3 simple functions in a parent class for ease of shared variables (comment-driven dev):
+- **main** controls the game loop, keeps track of time, allows the player to skip a problem, and enables them to control when the next problem is presented and the round begins
+- **new_problem** generates the problem
+- **solution_check** validates the player's solution
+I started with basic functions then tweaked them to ensure robustness for invalid inputs, to respect order of operations, and to prevent divide by 0 errors
+
+### Next
+- I have a stretch goal of teaching the computer to also calculate the answer, so that if a player skips a problem, they can still see the answer.
+- A version where multiple people can play vs. one another and wins compared would be nice.
+- I'll probably add the ability to export one's performance to a csv and may also keep a top 10 list accessible when the game is running.
 
 ## Tic-Tac-Toe
 *The classic game played in complicated fashion in a terminal.*
