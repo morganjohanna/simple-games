@@ -2,10 +2,10 @@ board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
 win = False
 turn = 1
 
-def playerx():
+def player_turn(player):
     global turn
 
-    print("Choose X's move.")
+    print(f"Choose {player}'s move.")
     row = int(input("What row do you want to select? 1, 2, or 3? "))-1
     column = input("What column do you want to select? A, B, or C? ")
 
@@ -17,27 +17,7 @@ def playerx():
         column = 2
         
     if board[row][column] == "-":
-        board[row][column] = "X"
-        turn = turn+1
-    else:
-        print("\nSorry, that space is not available!")
-
-def playero():
-    global turn
-
-    print("Choose O's move.")
-    row = int(input("What row do you want to select? 1, 2, or 3? "))-1
-    column = input("What column do you want to select? A, B, or C? ")
-
-    if column == "A" or column == "a":
-        column = 0
-    elif column == "B" or column == "b":
-        column = 1
-    else:
-        column = 2
-        
-    if board[row][column] == "-":
-        board[row][column] = "O"
+        board[row][column] = player
         turn = turn+1
     else:
         print("\nSorry, that space is not available!")
@@ -100,12 +80,11 @@ def wincheck():
 
 print("We're playing tic-tac-toe!")
 
-while win == False and turn <10:    
-    print(turn)
+while win == False and turn <10:
     if turn %2 == 0:
-        playero()
+        player_turn("O")
     else:
-        playerx()
+        player_turn("X")
 
     win = wincheck()
 
