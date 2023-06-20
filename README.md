@@ -1,5 +1,9 @@
 # Simple Games
-Contains multiple basic games coded in Python. Games each consist of a single Python file and no additional requirements; I might eventually make this pip-installable.
+Contains multiple basic games coded in Python. Games each consist of a single Python file and no or limited additional requirements; I might eventually make this pip-installable.
+
+**Games**
+- Adventure (adventure.py)
+- Tic-Tac-Toe (tictactoe.py)
 
 ## Adventure
 *A short, text-based adventure. There's a bear and adult language.*
@@ -18,10 +22,12 @@ The game was built step by step and changed considerably from the first iteratio
 It's a fairly basic game but solid, I might expand it later with additional puzzles or interactions.
 
 ## Tic-Tac-Toe
-*The classic game played in complicated fashion in a terminal*
+*The classic game played in complicated fashion in a terminal.*
 
-### Design
+### Design and Implementation
 The game is managed by global variables and a nested list that serves as the board; it's intended to be played by 2 humans who input row (1-3) and column (A-C) choices to place an X or O. Every turn, the game iterates through different win conditions before prompting the next player.
+
+I start by writing win conditions as part of a simple challenge, then decided to just code the entire game. The win conditions became a function (wincheck) and I added player functions (now merged into a single one, player_turn) to prompt players to choose their move and validate it as legal, global variables to manage the game (which player's turn it is, what to do if the board is full), and the main game loop.
 
 ### Next
 I might later make it so the user can play vs. the computer.
